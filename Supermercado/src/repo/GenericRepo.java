@@ -1,5 +1,6 @@
 package repo;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,9 +34,11 @@ public class GenericRepo<T,ID> implements CrudRepo<T, ID>{
 	private boolean isEqual(T entity, ID id) {
 		try {
 			for (Field f: entity.getClass().getDeclaredFields()) {
-				if (f.getType().getName().equals(id.getClass().getName())) {
-					f.setAccessible(true);
-					return f.get(entity).equals(id);
+				for (Annotation an: f.getAnnotations()) {
+					if (an.annotationType().getName().equals("repo.Chave")) {
+						f.setAccessible(true);
+						return f.get(entity).equals(id);
+					}
 				}				
 			}
 		}

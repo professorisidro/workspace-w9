@@ -1,6 +1,9 @@
 package model;
 
+import repo.Chave;
+
 public class Cliente {
+	@Chave
 	private Integer numSeq;
 	private String  nome;
 	private String  sobrenome;

@@ -20,7 +20,7 @@ public class MainClass {
 		
 		System.out.println(repo.findAll());
 		
-		System.out.println(repo.findById(8));
+		System.out.println(repo.findById(2));
 		
 	}
 	
