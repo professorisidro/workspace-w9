@@ -1,7 +1,5 @@
 package br.com.meli.calculadoradecalorias.service;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 
 import br.com.meli.calculadoradecalorias.dto.PratoRequestDTO;
@@ -16,6 +14,7 @@ public class CaloriasServiceImpl implements ICaloriasService {
 
 	public CaloriasServiceImpl(IngredientRepo repo) {
 		this.repo = repo;
+		System.out.println("Objeto do servico acabou de ser instanciado - sera atribuido para a referencia e sera injetado...");
 	}
 
 	@Override
