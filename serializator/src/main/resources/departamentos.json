@@ -1,0 +1,21 @@
+[
+	{
+		"idDepto": 10,
+		"nome": "Escrita",
+		"produtos": [
+			1,
+			2,
+			3,
+			4
+		]
+	},
+	{
+		"idDepto": 20,
+		"nome": "Appliances",
+		"produtos": [
+			2,
+			3,
+			5
+		]
+	}
+]

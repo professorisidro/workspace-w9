@@ -1,0 +1,32 @@
+[
+    {
+        "idProduto": 1,
+        "nome": "Caneta Azul",
+        "preco": 1.50,
+        "departamentos": [ 10 ]
+    },
+    {
+        "idProduto": 2,
+        "nome": "Caderno Universitário",
+        "preco": 15.99,
+        "departamentos": [ 10, 20 ]            
+    },
+    {
+        "idProduto": 3,
+        "nome": "Borracha Branca",
+        "preco": 0.99,
+        "departamentos": [ 10, 20 ] 
+    },
+    {
+        "idProduto": 4,
+        "nome": "Lápis HB",
+        "preco": 0.50,
+        "departamentos": [ 10 ] 
+    },
+    {
+        "idProduto": 5,
+        "nome": "Mochila Escolar",
+        "preco": 89.90,
+        "departamentos": [ 20 ]
+    }
+]
