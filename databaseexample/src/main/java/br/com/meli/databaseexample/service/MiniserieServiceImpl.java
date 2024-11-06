@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.meli.databaseexample.exceptions.NotFoundException;
+import br.com.meli.databaseexample.model.Categoria;
 import br.com.meli.databaseexample.model.Miniserie;
 import br.com.meli.databaseexample.repo.MiniserieRepo;
 import jakarta.persistence.EntityManager;
@@ -80,5 +81,14 @@ public class MiniserieServiceImpl implements IMiniserieService {
 		System.out.println("SQL = "+sql);
 		TypedQuery<Miniserie> query = manager.createQuery(sql, Miniserie.class);
 		return query.getResultList();
+	}
+
+	@Override
+	public List<Miniserie> findByCategoria(Integer idCategoria) {
+		// TODO Auto-generated method stub
+//		Categoria categoria = new Categoria();
+//		categoria.setId(idCategoria);
+//		return repo.findByCategoria(categoria);
+		return repo.findByCategoriaId(idCategoria);
 	}
 }

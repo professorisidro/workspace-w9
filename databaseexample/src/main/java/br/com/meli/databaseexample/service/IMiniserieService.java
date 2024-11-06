@@ -13,4 +13,6 @@ public interface IMiniserieService {
 	public List<Miniserie> findSorted(String field, String sortingCriteria);
 	
 	public List<Miniserie> customSort(String field[], String sort[]);
+	
+	public List<Miniserie> findByCategoria(Integer idCategoria);
 }

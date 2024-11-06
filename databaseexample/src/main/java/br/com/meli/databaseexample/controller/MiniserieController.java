@@ -55,6 +55,11 @@ public class MiniserieController {
 		return ResponseEntity.ok(service.findSorted(f, s));
 	}
 	
+	@GetMapping("/miniseries/categoria/{idCategoria}")
+	public ResponseEntity<List<Miniserie>> findByCategoria(@PathVariable Integer idCategoria){
+		return ResponseEntity.ok(service.findByCategoria(idCategoria));
+	}
+	
 	@GetMapping("/miniseries/search/custom")
 	public ResponseEntity<List<Miniserie>> findCustom(){
 		String fields[] = {"rating", "name"};

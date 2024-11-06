@@ -1,10 +1,17 @@
 package br.com.meli.databaseexample.model;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,6 +30,16 @@ public class Miniserie {
 	
 	@Column(name = "amount_of_awards", nullable = false)
 	private Integer amountOfAwards;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_categoria")
+	@JsonIgnoreProperties("miniseries")
+	private Categoria categoria;
+	
+	
+	@ManyToMany(mappedBy = "atuacoes")
+	@JsonIgnoreProperties("atuacoes")
+	private List<Ator> elenco;
 	
 	public Integer getId() {
 		return id;
@@ -47,5 +64,18 @@ public class Miniserie {
 	}
 	public void setAmountOfAwards(Integer amountOfAwards) {
 		this.amountOfAwards = amountOfAwards;
+	}
+	public Categoria getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+	public List<Ator> getElenco() {
+		return elenco;
+	}
+	public void setElenco(List<Ator> elenco) {
+		this.elenco = elenco;
 	}	
+	
 }
