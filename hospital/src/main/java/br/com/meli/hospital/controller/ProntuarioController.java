@@ -12,12 +12,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.meli.hospital.document.Prontuario;
+import br.com.meli.hospital.repo.ProntuarioRepo;
 import br.com.meli.hospital.service.IProntuarioService;
 
 @RestController
 public class ProntuarioController {
 	@Autowired
 	private IProntuarioService service;
+	
+	@Autowired
+	private ProntuarioRepo repo;
 	
 	@GetMapping("/prontuarios")
 	public ResponseEntity<List<Prontuario>> findAll(){
@@ -37,5 +41,10 @@ public class ProntuarioController {
 	@PostMapping("/prontuarios")
 	public ResponseEntity<Prontuario> save(@RequestBody Prontuario prontuario){
 		return ResponseEntity.status(201).body(service.save(prontuario));
+	}
+	
+	@GetMapping("/prontuarios/custom")
+	public ResponseEntity<List<Prontuario>> findCustom(@RequestParam(name = "k") String k){
+		return ResponseEntity.ok(repo.realizarConsultacustomizada(k));
 	}
 }

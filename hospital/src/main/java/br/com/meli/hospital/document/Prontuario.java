@@ -2,22 +2,28 @@ package br.com.meli.hospital.document;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
 
 
 @Document(indexName = "idx_prontuario")
 public class Prontuario {	
 	@Id
-	private Integer idPaciente;
+	private Integer numeroProtocolo;
+	
+	
 	private String queixa;
 	private String diagnostico;
 	private String condutaMedica;
+	@Field(type = FieldType.Text)
 	private String prescricao;
-	public Integer getIdPaciente() {
-		return idPaciente;
+	
+	public Integer getNumeroProtocolo() {
+		return numeroProtocolo;
 	}
-	public void setIdPaciente(Integer idPaciente) {
-		this.idPaciente = idPaciente;
+	public void setNumeroProtocolo(Integer numeroProtocolo) {
+		this.numeroProtocolo = numeroProtocolo;
 	}
 	public String getQueixa() {
 		return queixa;
